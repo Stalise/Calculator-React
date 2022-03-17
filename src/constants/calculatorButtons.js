@@ -1,0 +1,22 @@
+export const calculatorButtons = [
+   { name: 'C', type: 'action' },
+   { name: '9', type: 'number' },
+   { name: '8', type: 'number' },
+   { name: '7', type: 'number' },
+   { name: '*', type: 'operator' },
+   { name: '-', type: 'operator' },
+   { name: '6', type: 'number' },
+   { name: '5', type: 'number' },
+   { name: '4', type: 'number' },
+   { name: '/', type: 'operator' },
+   { name: '+', type: 'operator' },
+   { name: '3', type: 'number' },
+   { name: '2', type: 'number' },
+   { name: '1', type: 'number' },
+   { name: '=', type: 'operator' },
+   { name: '.', type: 'action' },
+   { name: '%', type: 'operator' },
+   { name: '0', type: 'number' },
+   { name: 'CS', type: 'action' },
+   { name: 'CE', type: 'action' }
+]
