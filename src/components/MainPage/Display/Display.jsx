@@ -1,12 +1,11 @@
 import React from 'react';
 import { DisplayText } from './style';
+import { myCalculator } from '@/utils/calculatorFilter';
 
-const Display = ({ calcValues }) => {
-
-   const result = Object.values(calcValues).join(' ')
+const Display = ({ currentValue }) => {
 
    return (
-      <DisplayText>{result}</DisplayText>
+      <DisplayText>{currentValue.value === '' ? currentValue.result : currentValue.value}</DisplayText>
    );
 }
 

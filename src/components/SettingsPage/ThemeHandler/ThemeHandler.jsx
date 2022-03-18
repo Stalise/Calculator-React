@@ -7,6 +7,7 @@ const ThemeHandler = () => {
 
    const dispatch = useDispatch()
 
+   // меняем тему в сторе редакса
    const changeSelect = (elem) => {
       dispatch(changeThemeAction(elem))
    }
