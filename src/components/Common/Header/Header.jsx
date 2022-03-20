@@ -6,7 +6,7 @@ const Header = () => {
 
    return (
       <HeaderWrapper>
-         <LogoTitle>Calculator</LogoTitle>
+         <Link to={'/'}><LogoTitle>Calculator App</LogoTitle></Link>
          <ButtonContainer>
             <Link to={'/'}><LinkText>Main</LinkText></Link>
             <Link to={'/settings'}><LinkText>Settings</LinkText></Link>

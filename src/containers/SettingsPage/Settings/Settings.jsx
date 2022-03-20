@@ -1,26 +1,33 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, connect } from 'react-redux';
 import { Wrapper, Title, Content, ClearButton } from './style';
 import ThemeHandler from '@/components/SettingsPage/ThemeHandler/ThemeHandler';
 import { clearHistoryAction } from '@/store/reducers/historyReducer/historyReducer';
+import { myCalculator } from '@/utils/calculatorFilter';
 
-const Settings = () => {
+class Settings extends React.Component {
+   constructor(props) {
+      super(props)
 
-   const dispatch = useDispatch()
-
-   const clearHistoryHandler = () => {
-      dispatch(clearHistoryAction())
+      this.clearHistoryHandler = this.clearHistoryHandler.bind(this)
    }
 
-   return (
-      <Wrapper>
-         <Title>Your settings</Title>
-         <Content>
-            <ThemeHandler />
-            <ClearButton type='button' onClick={() => clearHistoryHandler()} >Clear history</ClearButton>
-         </Content>
-      </Wrapper>
-   );
+   clearHistoryHandler() {
+      this.props.dispatch(clearHistoryAction())
+      myCalculator.reset()
+   }
+
+   render() {
+      return (
+         <Wrapper>
+            <Title>Your settings</Title>
+            <Content>
+               <ThemeHandler />
+               <ClearButton type='button' onClick={() => this.clearHistoryHandler()} >Clear history</ClearButton>
+            </Content>
+         </Wrapper>
+      )
+   }
 }
 
-export default Settings;
+export default connect(state => ({ history: state.history.history }))(Settings);

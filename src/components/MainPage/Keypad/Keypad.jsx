@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTyps from 'prop-types';
 import { KeypadContainer } from './style';
 import KeypadButton from '../KeypadButton/KeypadButton';
 import { calculatorButtons } from '@/constants/calculatorButtons';
@@ -12,11 +13,15 @@ const Keypad = ({ changeValues }) => {
                <KeypadButton
                   dataButton={elem}
                   key={elem.name}
-                  onClick={() => changeValues(elem.name, elem.type )}
+                  changeValues={() => changeValues(elem.name, elem.type)}
                />)
          })}
       </KeypadContainer>
    );
+}
+
+Keypad.propTypes = {
+   changeValues: PropTyps.func,
 }
 
 export default Keypad;

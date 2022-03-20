@@ -5,7 +5,7 @@ export const CalculatorWrapper = styled.div`
    width: 100%;
    height: 650px;
    background-color: ${props => props.theme.containerCalculator};
-   border-radius: 5px;
+   border-radius: 7px;
    display: flex;
 `
 

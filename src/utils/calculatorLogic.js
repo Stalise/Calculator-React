@@ -20,6 +20,11 @@ export class Calculator {
    setHistory(value) {
       this.history.push(value)
    }
+
+   reset() {
+      this.value = 0;
+      this.history = [];
+   }
 }
 
 export class AddCommand {

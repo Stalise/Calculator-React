@@ -13,7 +13,7 @@ const Calculator = () => {
    const [currentValue, setCurrentValue] = useState({
       value: '',
       operator: '',
-      result: '',
+      result: null,
    });
 
    const changeValues = (enteredValue, enteredType) => {

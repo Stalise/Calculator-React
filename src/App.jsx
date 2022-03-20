@@ -5,6 +5,7 @@ import MainPage from '@/pages/MainPage/MainPage';
 import SettingsPage from '@/pages/SettingsPage/SettingsPage';
 import { ThemeProvider } from 'styled-components';
 import { MyThemeLight, MyThemeDark } from '@/assest/styles/theme';
+import ErrorBoundary from './components/Common/ErrorBoundary/ErrorBoundary';
 
 const App = () => {
 
@@ -15,9 +16,11 @@ const App = () => {
    return (
       <ThemeProvider theme={currentTheme === 'light' ? MyThemeLight : MyThemeDark}>
          <Switch>
-            <Route component={MainPage} path={'/'} exact={true} />
-            <Route component={SettingsPage} path={'/settings'} />
-            <Redirect to='/' />
+            <ErrorBoundary>
+               <Route component={MainPage} path={'/'} exact={true} />
+               <Route component={SettingsPage} path={'/settings'} />
+               <Redirect to='/' />
+            </ErrorBoundary>
          </Switch>
       </ThemeProvider>
    );
