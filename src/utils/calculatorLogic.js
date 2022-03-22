@@ -1,15 +1,12 @@
 
-// Калькулятор и его команды ниже
 export class Calculator {
    constructor() {
-      this.value = 0;
-      this.history = [];
+      this.value = 0
+      this.history = []
    }
 
-   // при вызове команды, она получает текущее значение калькулятора, и в себе делает необходимые операции
    executeCommand(command) {
-      // если получается большое число, то обрезаем до 3-десятой, и убираем лишние дробные нули через Number
-      this.value = Number(command.execute(this.value).toFixed(2))
+      this.value = Number(command.execute().toFixed(2))
       this.setHistory(this.value)
    }
 
@@ -22,59 +19,62 @@ export class Calculator {
    }
 
    reset() {
-      this.value = 0;
-      this.history = [];
+      this.value = 0
+      this.history = []
    }
 }
 
 export class AddCommand {
-   // сюда попадает текущее введенное значение, когда мы создаем новый объект команды в calculatorFilter
-   constructor(enteredValue) {
-      this.enteredValue = enteredValue
+   constructor(firstValue, secondValue) {
+      this.firstValue = Number(firstValue)
+      this.secondValue = Number(secondValue)
    }
 
-   // здесь получаем текущее значение калькулятора переданное при вызове exucute в команде
-   execute(currentValue) {
-      return currentValue + this.enteredValue
+   execute() {
+      return this.firstValue + this.secondValue
    }
 }
 
 export class SubtractCommand {
-   constructor(enteredValue) {
-      this.enteredValue = enteredValue
+   constructor(firstValue, secondValue) {
+      this.firstValue = Number(firstValue)
+      this.secondValue = Number(secondValue)
    }
 
-   execute(currentValue) {
-      return currentValue - this.enteredValue
+   execute() {
+      return this.firstValue - this.secondValue
    }
 }
 
 export class MultiplyCommand {
-   constructor(enteredValue) {
-      this.enteredValue = enteredValue
+   constructor(firstValue, secondValue) {
+      this.firstValue = Number(firstValue)
+      this.secondValue = Number(secondValue)
    }
 
-   execute(currentValue) {
-      return currentValue * this.enteredValue
+   execute() {
+      return this.firstValue * this.secondValue
    }
 }
 
 export class DivideCommand {
-   constructor(enteredValue) {
-      this.enteredValue = enteredValue
+   constructor(firstValue, secondValue) {
+      this.firstValue = Number(firstValue)
+      this.secondValue = Number(secondValue)
    }
 
-   execute(currentValue) {
-      return currentValue / this.enteredValue
+   execute() {
+      return this.firstValue / this.secondValue
    }
 }
 
 export class RemainderCommand {
-   constructor(enteredValue) {
-      this.enteredValue = enteredValue
+   constructor(firstValue, secondValue) {
+      this.firstValue = Number(firstValue)
+      this.secondValue = Number(secondValue)
    }
 
-   execute(currentValue) {
-      return currentValue % this.enteredValue
+   execute() {
+      return this.firstValue % this.secondValue
    }
 }

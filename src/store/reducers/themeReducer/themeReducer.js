@@ -1,5 +1,4 @@
-
-const CHANGE_THEME = "CHANGE_THEME";
+import { CHANGE_THEME } from './constants'
 
 const initialStore = {
    currentTheme: 'light',
@@ -10,13 +9,9 @@ export const themeReducer = (state = initialStore, action) => {
       case CHANGE_THEME:
          return {
             ...state,
-            currentTheme: action.payload.newTheme
+            currentTheme: action.payload.newTheme,
          }
       default:
          return state
    }
-}
-
-export const changeThemeAction = (newTheme) => {
-   return { type: CHANGE_THEME, payload: { newTheme } }
 }

@@ -17,6 +17,5 @@ export const calculatorButtons = [
    { name: '.', type: 'action' },
    { name: '%', type: 'operator' },
    { name: '0', type: 'number' },
-   { name: 'CS', type: 'action' },
-   { name: 'CE', type: 'action' }
+   { name: 'CE', type: 'action' },
 ]

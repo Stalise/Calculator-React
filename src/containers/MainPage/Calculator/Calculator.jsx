@@ -1,29 +1,36 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { CalculatorWrapper, LeftContainer, RightContainer } from './style';
-import Display from '@/components/MainPage/Display/Display';
-import Keypad from '@/components/MainPage/Keypad/Keypad';
-import History from '@/components/MainPage/History/History';
-import { filterCommand, myCalculator } from '@/utils/calculatorFilter';
+import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+
+import { CalculatorWrapper, LeftContainer, RightContainer } from './style'
+import Display from '@/components/MainPage/Display/Display'
+import Keypad from '@/components/MainPage/Keypad/Keypad'
+import History from '@/components/MainPage/History/History'
+import { myCalculator, enteredNumberType, enteredOperatorType, enteredActionType } from '@/utils/calculatorHandler'
 
 const Calculator = () => {
 
    const dispatch = useDispatch()
 
    const [currentValue, setCurrentValue] = useState({
-      value: '',
+      firstValue: '',
       operator: '',
-      result: null,
-   });
+      secondValue: '',
+   })
 
    const changeValues = (enteredValue, enteredType) => {
-      filterCommand(enteredValue, enteredType, currentValue, setCurrentValue, dispatch)
-   }
 
-   // при загрузке страницы main берем старое значение которое было введено из истории калькулятора
-   useEffect(() => {
-      setCurrentValue({ ...currentValue, result: myCalculator.value })
-   }, [])
+      switch (enteredType) {
+         case 'number':
+            enteredNumberType(enteredValue, currentValue, setCurrentValue)
+            break;
+         case 'operator':
+            enteredOperatorType(enteredValue, currentValue, setCurrentValue, dispatch)
+            break;
+         case 'action':
+            enteredActionType(enteredValue, currentValue, setCurrentValue)
+            break;
+      }
+   }
 
    return (
       <CalculatorWrapper>
@@ -35,7 +42,7 @@ const Calculator = () => {
             <History />
          </RightContainer>
       </CalculatorWrapper>
-   );
+   )
 }
 
-export default Calculator;
+export default Calculator

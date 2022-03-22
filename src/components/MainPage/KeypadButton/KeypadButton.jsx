@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Button } from './style';
-import { string } from 'yup';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Button } from './style'
+import { string } from 'yup'
 
 
 const KeypadButton = ({ dataButton, changeValues }) => {
@@ -13,7 +13,7 @@ const KeypadButton = ({ dataButton, changeValues }) => {
       >
          {dataButton.name}
       </Button>
-   );
+   )
 }
 
 KeypadButton.propTypes = {
@@ -21,7 +21,7 @@ KeypadButton.propTypes = {
       name: PropTypes.string,
       type: PropTypes.string,
    }),
-   changeValues: PropTypes.func
+   changeValues: PropTypes.func,
 }
 
-export default KeypadButton;
+export default KeypadButton

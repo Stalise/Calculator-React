@@ -1,7 +1,7 @@
-import React from 'react';
-import { useDispatch, connect } from 'react-redux';
-import { changeThemeAction } from '@/store/reducers/themeReducer/themeReducer';
-import { Container, Title, MySelect, OptionSelect } from './style';
+import React from 'react'
+import { useDispatch, connect } from 'react-redux'
+import { changeThemeAction } from '@/store/reducers/themeReducer/actions'
+import { Container, Title, MySelect, OptionSelect } from './style'
 
 class ThemeHandler extends React.Component {
    constructor(props) {
@@ -19,13 +19,23 @@ class ThemeHandler extends React.Component {
       return (
          <Container>
             <Title>Theme handler</Title>
-            <MySelect name="theme" defaultValue={'light'} onChange={(e) => this.changeSelect(e.target.value)}>
+            <MySelect
+               name="theme"
+               defaultValue={this.props.theme}
+               onChange={e => this.changeSelect(e.target.value)}
+            >
                <OptionSelect value="light">Light</OptionSelect>
                <OptionSelect value="dark">Dark</OptionSelect>
             </MySelect>
          </Container>
-      );
+      )
    }
 }
 
-export default connect()(ThemeHandler);
+const mapStateToProps = state => {
+   return (
+      { theme: state.theme.currentTheme }
+   )
+}
+
+export default connect(mapStateToProps)(ThemeHandler)

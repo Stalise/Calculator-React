@@ -1,9 +1,7 @@
-
-const ADD_HISTORY = "ADD_HISTORY";
-const CLEAR_HISTORY = "CLEAR_HISTORY";
+import { ADD_HISTORY, CLEAR_HISTORY } from './constants'
 
 const initialStore = {
-   history: []
+   history: [],
 }
 
 export const historyReducer = (state = initialStore, action) => {
@@ -11,22 +9,14 @@ export const historyReducer = (state = initialStore, action) => {
       case ADD_HISTORY:
          return {
             ...state,
-            history: [...state.history, action.payload]
+            history: [...state.history, action.payload],
          }
       case CLEAR_HISTORY:
          return {
             ...state,
-            history: []
+            history: [],
          }
       default:
          return state
    }
-}
-
-export const addHistoryAction = (firstValue, operator, secondValue) => {
-   return { type: ADD_HISTORY, payload: { firstValue, operator, secondValue } }
-}
-
-export const clearHistoryAction = () => {
-   return { type: CLEAR_HISTORY }
 }

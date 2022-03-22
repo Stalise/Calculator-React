@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const HistoryCotainer = styled.div`
    max-width: 100%;

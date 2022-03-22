@@ -1,9 +1,9 @@
-import React from 'react';
-import { useDispatch, connect } from 'react-redux';
-import { Wrapper, Title, Content, ClearButton } from './style';
-import ThemeHandler from '@/components/SettingsPage/ThemeHandler/ThemeHandler';
-import { clearHistoryAction } from '@/store/reducers/historyReducer/historyReducer';
-import { myCalculator } from '@/utils/calculatorFilter';
+import React from 'react'
+import { useDispatch, connect } from 'react-redux'
+import { Wrapper, Title, Content, ClearButton } from './style'
+import ThemeHandler from '@/components/SettingsPage/ThemeHandler/ThemeHandler'
+import { clearHistoryAction } from '@/store/reducers/historyReducer/historyReducer'
+import { myCalculator } from '@/utils/calculatorHandler'
 
 class Settings extends React.Component {
    constructor(props) {
@@ -23,11 +23,17 @@ class Settings extends React.Component {
             <Title>Your settings</Title>
             <Content>
                <ThemeHandler />
-               <ClearButton type='button' onClick={() => this.clearHistoryHandler()} >Clear history</ClearButton>
+               <ClearButton type="button" onClick={() => this.clearHistoryHandler()} >Clear history</ClearButton>
             </Content>
          </Wrapper>
       )
    }
 }
 
-export default connect(state => ({ history: state.history.history }))(Settings);
+const mapStateToProps = state => {
+   return (
+      { history: state.history.history }
+   )
+}
+
+export default connect(mapStateToProps)(Settings)
