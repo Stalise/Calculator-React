@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const Wrapper = styled.div`
+export const SettingsWrapper = styled.div`
    max-width: 1000px;
    width: 100%;
    height: 650px;

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Wrapper, Title, Content, ClearButton } from './style'
+import { SettingsWrapper, Title, Content, ClearButton } from './style'
 import ThemeHandler from '@/components/SettingsPage/ThemeHandler/ThemeHandler'
 import { clearHistoryAction } from '@/actions/historyReducer'
 
@@ -17,13 +17,13 @@ class Settings extends React.Component {
 
    render() {
       return (
-         <Wrapper>
+         <SettingsWrapper>
             <Title>Your settings</Title>
             <Content>
                <ThemeHandler />
                <ClearButton type="button" onClick={() => this.clearHistoryHandler()} >Clear history</ClearButton>
             </Content>
-         </Wrapper>
+         </SettingsWrapper>
       )
    }
 }
