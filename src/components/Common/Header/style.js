@@ -9,7 +9,6 @@ export const HeaderWrapper = styled.div`
    display: flex;
    justify-content: space-between;
    align-items: center;
-   margin-bottom: 100px;
 `
 
 export const LogoTitle = styled.p`
@@ -30,9 +29,12 @@ export const LinkText = styled.p`
    padding: 6px 8px;
    background-color: #fff;
    font-size: 20px;
-   transition: color 0.3s;
+   transition: color 0.3s, transform 0.3s;
    border-radius: 3px;
    &:hover {
       color: #000;
+   }
+   &:active {
+      transform: scale(0.95, 0.95);
    }
 `

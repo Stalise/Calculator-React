@@ -15,7 +15,10 @@ const History = () => {
          <Title>History</Title>
          <List>
             {history.map(elem => {
-               return <ListItem key={Object.values(elem).join('')}>{getResultValue(elem)}</ListItem>
+               return (
+                  <ListItem key={Object.values(elem).join('')}>
+                     {getResultValue(elem)}
+                  </ListItem>)
             })}
          </List>
       </HistoryCotainer>

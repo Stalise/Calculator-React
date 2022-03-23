@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { BoundaryWrapper, Message } from './style'
+
 class ErrorBoundary extends React.Component {
    constructor(props) {
       super(props)
@@ -27,7 +29,11 @@ class ErrorBoundary extends React.Component {
 
    render() {
       if (this.state.errorStatus) {
-         return <div>Oooops...something was wrong :(</div>
+         return (
+            <BoundaryWrapper>
+               <Message>Oooops...something was wrong :(</Message>
+            </BoundaryWrapper>
+         )
       }
       return this.props.children
    }

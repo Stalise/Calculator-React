@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Button } from './style'
-import { string } from 'yup'
 
 
 const KeypadButton = ({ dataButton, changeValues }) => {

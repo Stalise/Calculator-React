@@ -1,6 +1,6 @@
 import React from 'react'
-import { useDispatch, connect } from 'react-redux'
-import { changeThemeAction } from '@/store/reducers/themeReducer/actions'
+import { connect } from 'react-redux'
+import { changeThemeAction } from '@/actions/themeReducer'
 import { Container, Title, MySelect, OptionSelect } from './style'
 
 class ThemeHandler extends React.Component {

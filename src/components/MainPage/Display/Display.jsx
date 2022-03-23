@@ -1,19 +1,18 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { DisplayText } from './style'
-import { myCalculator } from '@/utils/calculatorHandler'
 
-const Display = ({ currentValue }) => {
+const Display = ({ currentValues }) => {
 
-   const result = Object.values(currentValue).join(' ')
+   const result = Object.values(currentValues).join(' ')
 
    return (
-      <DisplayText>{currentValue.firstValue !== '' ? result : '0'}</DisplayText>
+      <DisplayText>{currentValues.firstValue !== '' ? result : '0'}</DisplayText>
    )
 }
 
 Display.propTypes = {
-   currentValue: PropTypes.shape({
+   currentValues: PropTypes.shape({
       firstValue: PropTypes.string,
       operator: PropTypes.string,
       secondValue: PropTypes.string,

@@ -25,7 +25,19 @@ export const ListItem = styled.li`
    color: gray;
    word-wrap: break-word;
    line-height: 20px;
+   animation-name: appear;
+   animation-duration: 0.5s;
    &:not(:last-child) {
       margin-bottom: 15px;
+   }
+
+   @keyframes appear{
+   0%{
+      transform: translateY(-15px);
+      opacity: 0.5;
+   }
+   100%{
+      transform: translateY(0px);
+      opacity: 1;
    }
 `

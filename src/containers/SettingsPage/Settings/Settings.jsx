@@ -1,9 +1,8 @@
 import React from 'react'
-import { useDispatch, connect } from 'react-redux'
+import { connect } from 'react-redux'
 import { Wrapper, Title, Content, ClearButton } from './style'
 import ThemeHandler from '@/components/SettingsPage/ThemeHandler/ThemeHandler'
-import { clearHistoryAction } from '@/store/reducers/historyReducer/historyReducer'
-import { myCalculator } from '@/utils/calculatorHandler'
+import { clearHistoryAction } from '@/actions/historyReducer'
 
 class Settings extends React.Component {
    constructor(props) {
@@ -14,7 +13,6 @@ class Settings extends React.Component {
 
    clearHistoryHandler() {
       this.props.dispatch(clearHistoryAction())
-      myCalculator.reset()
    }
 
    render() {

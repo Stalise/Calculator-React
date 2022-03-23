@@ -5,8 +5,6 @@ import { Provider } from 'react-redux'
 
 import App from './App'
 import GlobalStyles from '@/assest/styles/globalStyles'
-import { theme } from '@/assest/styles/theme'
-import { ThemeProvider } from 'styled-components'
 import { store } from '@/store/store'
 
 ReactDOM.render(
