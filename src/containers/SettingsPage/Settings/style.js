@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
-export const Wrapper = styled.div`
+export const SettingsWrapper = styled.div`
    max-width: 1000px;
    width: 100%;
    height: 650px;
@@ -32,8 +32,11 @@ export const ClearButton = styled.button`
    padding: 5px;
    background-color: #ededed;
    color: #2d2d2d;
-   transition: border 0.3s;
+   transition: border 0.3s, transform 0.3s;
    &:hover {
       border: 2px solid gray;
+   }
+   &:active {
+      transform: scale(0.95, 0.95);
    }
 `

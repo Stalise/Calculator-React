@@ -1,12 +1,26 @@
-import React from 'react';
-import { Button } from './style';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Button } from './style'
 
 
-const KeypadButton = ({ dataButton }) => {
+const KeypadButton = ({ dataButton, changeValues }) => {
 
    return (
-      <Button typeStyle={dataButton.type}>{dataButton.name}</Button>
-   );
+      <Button
+         typeStyle={dataButton.type}
+         onClick={changeValues}
+      >
+         {dataButton.name}
+      </Button>
+   )
 }
 
-export default KeypadButton;
+KeypadButton.propTypes = {
+   dataButton: PropTypes.shape({
+      name: PropTypes.string,
+      type: PropTypes.string,
+   }),
+   changeValues: PropTypes.func,
+}
+
+export default KeypadButton

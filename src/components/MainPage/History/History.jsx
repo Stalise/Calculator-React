@@ -1,17 +1,28 @@
-import React from 'react';
-import { HistoryCotainer, Title, List, ListItem } from './style';
+import React from 'react'
+import { useSelector } from 'react-redux'
+import { HistoryCotainer, Title, List, ListItem } from './style'
 
 const History = () => {
+
+   const { history } = useSelector(state => state.history)
+
+   const getResultValue = elem => {
+      return Object.values(elem).join(' ')
+   }
 
    return (
       <HistoryCotainer>
          <Title>History</Title>
          <List>
-            <ListItem>25 + 300000000000000000</ListItem>
-            <ListItem>25 + 30</ListItem>
+            {history.map(elem => {
+               return (
+                  <ListItem key={Object.values(elem).join('')}>
+                     {getResultValue(elem)}
+                  </ListItem>)
+            })}
          </List>
       </HistoryCotainer>
-   );
+   )
 }
 
-export default History;
+export default History

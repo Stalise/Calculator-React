@@ -1,11 +1,11 @@
 import styled from "styled-components"
 
-export const Wrapper = styled.div`
-   height: 100%;
+export const LayoutWrapper = styled.div`
+   min-height: 100vh;
    width: 100%;
-   padding: 100px 50px;
    overflow: hidden;
    display: flex;
    flex-direction: column;
    align-items: center;
+   background-color: ${props => props.theme.wrapperBackground};
 `

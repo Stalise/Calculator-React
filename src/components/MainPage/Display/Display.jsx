@@ -1,13 +1,22 @@
-import React from 'react';
-import { DisplayText } from './style';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { DisplayText } from './style'
 
-const Display = ({ calcValues }) => {
+const Display = ({ currentValues }) => {
 
-   const result = Object.values(calcValues).join(' ')
+   const result = Object.values(currentValues).join(' ')
 
    return (
-      <DisplayText>{result}</DisplayText>
-   );
+      <DisplayText>{currentValues.firstValue !== '' ? result : '0'}</DisplayText>
+   )
 }
 
-export default Display;
+Display.propTypes = {
+   currentValues: PropTypes.shape({
+      firstValue: PropTypes.string,
+      operator: PropTypes.string,
+      secondValue: PropTypes.string,
+   }),
+}
+
+export default Display
